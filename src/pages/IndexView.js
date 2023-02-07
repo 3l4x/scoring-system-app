@@ -1,6 +1,8 @@
 import React from 'react'
 import { Header, Segment, Grid } from 'semantic-ui-react'
 import ScoringSystem from '../components/ScoringSystem'
+import { ScoringUtil } from '../utils/ScoringUtil'
+
 const IndexView = () => {
     return (
         <Grid textAlign='center' style={{ height: '60vh' }} verticalAlign='middle'>
@@ -11,7 +13,7 @@ const IndexView = () => {
                     </Segment>
                 </Grid.Row>
                 <Grid.Row>
-                    <ScoringSystem></ScoringSystem>
+                    <ScoringSystem data={ScoringUtil}></ScoringSystem>
                 </Grid.Row>
             </Grid.Column>
         </Grid>
