@@ -5,10 +5,10 @@ import { ScoringUtil } from '../utils/ScoringUtil'
 
 const IndexView = () => {
     return (
-        <Grid textAlign='center' style={{ height: '60vh' }} verticalAlign='middle'>
-            <Grid.Column style={{ maxWidth: 800 }}>
+        <Grid textAlign='center' style={{ marginTop: '200px'}}>
+            <Grid.Column style={{ maxWidth: '800px' }}>
                 <Grid.Row style={{ height: 'auto', marginBottom: '20px' }}>
-                    <Segment style={{ padding: '5px' }} inverted color='blue'>
+                    <Segment style={{ marginBottom: '2em', padding: '5px' }} inverted color='blue'>
                         <Header as='h1'>Scoring System</Header>
                     </Segment>
                 </Grid.Row>

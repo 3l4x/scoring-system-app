@@ -3,23 +3,22 @@ import { Table } from 'semantic-ui-react'
 import AspectInput from './AspectInput'
 import AspectRadioBtn from './AspectRadioBtn'
 import AspectSelect from './AspectSelect'
-const Aspect = ({ index, aspect }) => {
-
+const Aspect = ({ index, aspect, tempResultsState }) => {
   const lookupTable = {
     number: () => {
-      return <AspectInput maxValue={aspect.maxValue}></AspectInput>
+      return <AspectInput aspectId={aspect.id} tempResultsState={tempResultsState} maxValue={aspect.maxValue}></AspectInput>
     },
     boolean: () => {
-      return <AspectRadioBtn value={aspect.value}></AspectRadioBtn>
+      return <AspectRadioBtn aspectId={aspect.id}  tempResultsState={tempResultsState}   value={aspect.value}></AspectRadioBtn>
     },
     list: () => {
-      return <AspectSelect values={aspect.values}></AspectSelect>
+      return <AspectSelect aspectId={aspect.id}  tempResultsState={tempResultsState}   values={aspect.values}></AspectSelect>
     },
   }
 
   return (
     <Table.Row>
-      <Table.Cell>{index}</Table.Cell>
+      <Table.Cell>{index+1}</Table.Cell>
       <Table.Cell>{aspect.name}</Table.Cell>
       <Table.Cell>
         {lookupTable[aspect.type]()}
@@ -28,5 +27,6 @@ const Aspect = ({ index, aspect }) => {
     </Table.Row>
   )
 }
+
 
 export default Aspect
