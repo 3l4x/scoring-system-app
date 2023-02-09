@@ -7,7 +7,7 @@ function TaskNavigatorBtn({disabled, content, direction, callback }) {
     content={`${content}`}
     icon={`${direction} arrow`}
     labelPosition={`${direction}`}
-    primary
+    secondary
     disabled={disabled}
     onClick={()=>{
         callback();

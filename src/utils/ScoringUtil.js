@@ -62,6 +62,14 @@ export const ScoringUtil = {
                     "name": "1. aspect",
                     "type": "boolean",
                     "value": 1
+                },
+                {
+                    "id": 32,
+                    "name": "2. aspect",
+                    "description": "2. aspect's description",
+                    "type": "number",
+                    "maxValue": 4,
+                    "required": false
                 }
             ]
         }

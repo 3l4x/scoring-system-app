@@ -2,7 +2,7 @@ import React from 'react'
 import { Table } from 'semantic-ui-react'
 import TaskBtnGroup from './button/TaskBtnGroup'
 import TaskNavigatorBtn from './button/TaskNavigatorBtn'
-const TaskFooter = ({ panes, activeIndexProp: { activeIndex, setActiveIndex } }) => {
+const TaskFooter = ({ panes, resultsState: {results, saveResults}, tempResultsState: { setTempResults },  activeIndexProp: { activeIndex, setActiveIndex },  }) => {
     return (
         <Table.Footer fullWidth >
             <Table.Row>
@@ -15,7 +15,12 @@ const TaskFooter = ({ panes, activeIndexProp: { activeIndex, setActiveIndex } })
                             disabled={activeIndex === 0}
                             callback={() => setActiveIndex(Math.max(activeIndex - 1, 0))}
                         />
-                        <TaskBtnGroup />
+                        <TaskBtnGroup
+                        onCancel={()=>{
+                            console.log(results);
+                            setTempResults(results)
+                        }}
+                        onSave={saveResults} />
                         <TaskNavigatorBtn
                             content='Next task'
                             direction='right'

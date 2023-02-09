@@ -1,12 +1,23 @@
 import React from 'react'
 import { Button } from 'semantic-ui-react'
-function TaskBtnGroup() {
+function TaskBtnGroup({ onCancel, onSave }) {
     return (
 
         <Button.Group>
-            <Button>Cancel</Button>
+            <Button
+                onClick={onCancel}
+            >
+                Cancel
+            </Button>
+
             <Button.Or />
-            <Button positive>Save</Button>
+
+            <Button
+                onClick={onSave}
+                positive
+            >
+                Save
+            </Button>
         </Button.Group>
     )
 }
