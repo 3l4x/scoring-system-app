@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Header, Segment, Grid,Divider } from 'semantic-ui-react'
+import { Header, Segment, Grid } from 'semantic-ui-react'
 import FormattedCode from '../components/FormattedCode'
 import ScoringSystem from '../components/ScoringSystem'
 import { ScoringUtil } from '../utils/ScoringUtil'

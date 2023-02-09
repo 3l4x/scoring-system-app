@@ -7,7 +7,7 @@ const AspectSelect = ({ aspectId, values, tempResultsState: { tempResults, setTe
       options={Object.keys(values).map((k) => {
         return { key: k, value: k, text: values[k] }
       })}
-      defaultValue={tempResults.results[aspectId]}
+      value={tempResults.results[aspectId]?? ''}
       onChange={(e,data) => {
         setTempResults({
           results: {
