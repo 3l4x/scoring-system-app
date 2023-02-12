@@ -23,6 +23,10 @@ const IndexView = () => {
                             data={ScoringUtil}
                             setOutput={setOutput}
                         />
+                        <p>Only saves if every required field is filled & valid<br/>
+                        Cancel resets it to last save.
+                        </p>
+
                     </Grid.Row>
                 </Grid.Column>
                 <Grid.Column style={{ width: 'auto', padding:'0' }}>

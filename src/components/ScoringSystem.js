@@ -17,7 +17,7 @@ const ScoringSystem = ({ data, setOutput }) => {
     //
     const [validationRules, setValidationRules] = useState(yup.object().shape({}));
     const [errors, setErrors] = useState({});
-
+    const [hasBeenValidated, setHasBeenValidated] = useState(false);
     useEffect(() => {
         setValidationRules(GenerateValidationRules(data));
         //console.log(GenerateValidationRules(data));
@@ -40,12 +40,19 @@ const ScoringSystem = ({ data, setOutput }) => {
     const saveResults = async () => {
         const validationResults = await FormValidator(validationRules, tempResults.results);
         setErrors(validationResults);
+        if(!hasBeenValidated)
+            setHasBeenValidated(true);
     }
     //setResults is async, so we have to update output whenever results have been updated
 
     const panes = data.tasks.map((task) => {
+        const numOfErrors = task.aspects.reduce((acc, {id})=>{
+            if(id in errors)
+                return acc+1;
+            return acc;
+        },0)
         return {
-            menuItem: task.name,
+            menuItem: task.name + `${hasBeenValidated ? ` | ${numOfErrors}❌${task.aspects.length-numOfErrors}✔️` : '' }`,
             render: () =>
                 <Task
                     panes={panes}

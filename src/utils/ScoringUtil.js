@@ -1,5 +1,5 @@
 export const ScoringUtil = {
-    "name": "Verseny neve",
+    "name": "Name of competition",
     "tasks": [
         {
             "name": "1. task",

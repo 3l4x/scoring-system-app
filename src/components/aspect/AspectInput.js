@@ -12,23 +12,29 @@ const AspectInput = ({ errors, aspectId, maxValue, tempResultsState: { tempResul
   }, []);
   return (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <Input  style={{  width: '60px'}}
+      <Input style={{ width: '60px' }}
         label={<div ref={labelRef} className='ui label label'>{`/ ${maxValue} `}</div>}
         labelPosition='right'
-        placeholder = {0}
+        placeholder={0}
         value={tempResults['results'][aspectId] ?? ''}
         onChange={(e) => {
-          setTempResults({
-            results: {
-              ...tempResults.results,
-              [aspectId]: e.target.value
-            }
+          if (e.target.value === '') {
+            const newTempResults = {...tempResults};
+            delete newTempResults.results[aspectId]
+            setTempResults(newTempResults);
           }
-          );
+          else {
+            setTempResults({
+              results: {
+                ...tempResults.results,
+                [aspectId]: e.target.value
+              }
+            });
+          }
         }}
-        error={ aspectId in errors}
+        error={aspectId in errors}
       />
-      <ErrorLabel labelRef={errorLabelRef} id={aspectId} errors={errors}/>
+      <ErrorLabel labelRef={errorLabelRef} id={aspectId} errors={errors} />
     </div>
   )
 }
