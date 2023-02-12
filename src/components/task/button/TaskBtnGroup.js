@@ -1,11 +1,12 @@
 import React from 'react'
 import { Button } from 'semantic-ui-react'
-function TaskBtnGroup({ onCancel, onSave }) {
+const TaskBtnGroup = ({ onCancel, onSave }) => {
     return (
 
         <Button.Group>
             <Button
                 onClick={onCancel}
+                title={'Resetting form data to last saved output'}
             >
                 Cancel
             </Button>

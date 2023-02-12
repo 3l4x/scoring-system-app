@@ -14,7 +14,31 @@ export const ScoringUtil = {
                         "bad": 'Bad'
                     },
                     "required": true
-                }
+                },
+                {
+                    "id": 12,
+                    "name": "2. aspect",
+                    "description": "2. aspect's description",
+                    "type": "number",
+                    "maxValue": 5,
+                    "required": true
+                },
+                {
+                    "id": 13,
+                    "name": "3. aspect",
+                    "description": "3. aspect's description",
+                    "type": "number",
+                    "maxValue": 4,
+                    "required": true
+                },
+                {
+                    "id": 14,
+                    "name": "4. aspect",
+                    "description": "4. aspect's description",
+                    "type": "number",
+                    "maxValue": 9,
+                    "required": true
+                },
             ]
         },
         {
@@ -66,7 +90,14 @@ export const ScoringUtil = {
                 {
                     "id": 32,
                     "name": "2. aspect",
-                    "description": "2. aspect's description",
+                    "type": "boolean",
+                    "value": 1,
+                    "required": true
+                },
+                {
+                    "id": 33,
+                    "name": "3. aspect",
+                    "description": "3. aspect's description",
                     "type": "number",
                     "maxValue": 4,
                     "required": false

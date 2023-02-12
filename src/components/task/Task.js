@@ -2,18 +2,19 @@ import { Tab, Table } from 'semantic-ui-react'
 import TaskBody from './TaskBody';
 import TaskFooter from './TaskFooter';
 import TaskHeader from './TaskHeader';
-const Task = ({ panes, activeIndexProp, aspects, tempResultsState, resultsState, }) => {
+const Task = ({ panes, aspects, errorsState, tempResultsState, resultsState, activeIndexState }) => {
     //console.log(aspects);
     return (
         <Tab.Pane>
             <Table textAlign='center' celled definition>
                 <TaskHeader />
-                <TaskBody tempResultsState={tempResultsState} aspects={aspects}></TaskBody>
+                <TaskBody errors={errorsState.errors} tempResultsState={tempResultsState} aspects={aspects}></TaskBody>
                 <TaskFooter
                     panes={panes}
                     tempResultsState={tempResultsState}
                     resultsState={resultsState}
-                    activeIndexProp={activeIndexProp}
+                    activeIndexState={activeIndexState}
+                    setErrors = {errorsState.setErrors}
                 />
             </Table>
         </Tab.Pane >

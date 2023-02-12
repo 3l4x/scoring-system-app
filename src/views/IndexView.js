@@ -5,8 +5,7 @@ import ScoringSystem from '../components/ScoringSystem'
 import { ScoringUtil } from '../utils/ScoringUtil'
 
 const IndexView = () => {
-    const [results, setResults] = useState({ results: {} });
-    const [error, setError] = useState({ results: {} });
+    const [output, setOutput] = useState({});
     return (
             <Grid textAlign='center' style={{ display: 'flex', height: '100vh', alignItems: 'center', justifyContent: 'space-between', margin: 0, }}>
                 <Grid.Column style={{ width: 'auto', padding:'0' }}>
@@ -22,13 +21,12 @@ const IndexView = () => {
                     <Grid.Row>
                         <ScoringSystem
                             data={ScoringUtil}
-                            results={results}
-                            setResults={setResults}
+                            setOutput={setOutput}
                         />
                     </Grid.Row>
                 </Grid.Column>
                 <Grid.Column style={{ width: 'auto', padding:'0' }}>
-                    <FormattedCode title="Results" obj={results} />
+                    <FormattedCode title="Output" obj={output} />
                 </Grid.Column>
             </Grid>
     )

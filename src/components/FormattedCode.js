@@ -3,7 +3,7 @@ import Highlight from 'react-highlight'
 import '../assets/style/monokai-sublime.css';
 import js_beautify from 'js-beautify';
 import { Segment, Header } from 'semantic-ui-react'
-function FormattedCode({ title = 'Random title', obj }) {
+const FormattedCode = ({ title = 'Random title', obj }) => {
     return (
         <div>
 

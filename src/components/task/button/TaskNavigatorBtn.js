@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from 'semantic-ui-react'
-function TaskNavigatorBtn({disabled, content, direction, callback }) {
+const TaskNavigatorBtn = ({disabled, content, direction, callback }) => {
   return (
 
     <Button

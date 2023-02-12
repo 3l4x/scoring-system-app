@@ -1,23 +1,35 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Input } from 'semantic-ui-react'
+import ErrorLabel from './ErrorLabel';
 
-const AspectInput = ({ aspectId, maxValue, tempResultsState: { tempResults, setTempResults } }) => {
+const AspectInput = ({ errors, aspectId, maxValue, tempResultsState: { tempResults, setTempResults } }) => {
+  const labelRef = useRef(null);
+  const errorLabelRef = useRef(null);
+  useEffect(() => {
+    const labelWidth = labelRef.current.clientWidth;
+    labelRef.current.style.margin = `0 ${labelWidth}px 0 0`
+    errorLabelRef.current.style.margin = `0 0 0 ${labelWidth}px`
+  }, []);
   return (
-    <Input style={{ width: '50px' }}
-      label={`/ ${maxValue} `}
-      labelPosition='right'
-      placeholder={`${tempResults ?? '0'}`}
-      value={tempResults['results'][aspectId] ?? '0'}
-      onChange={(e) => {
-        setTempResults({
-          results: {
-            ...tempResults.results,
-            [aspectId]: e.target.value
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <Input  style={{  width: '60px'}}
+        label={<div ref={labelRef} className='ui label label'>{`/ ${maxValue} `}</div>}
+        labelPosition='right'
+        placeholder = {0}
+        value={tempResults['results'][aspectId] ?? ''}
+        onChange={(e) => {
+          setTempResults({
+            results: {
+              ...tempResults.results,
+              [aspectId]: e.target.value
+            }
           }
-        }
-        );
-      }}
-    />
+          );
+        }}
+        error={ aspectId in errors}
+      />
+      <ErrorLabel labelRef={errorLabelRef} id={aspectId} errors={errors}/>
+    </div>
   )
 }
 

@@ -1,4 +1,4 @@
-import IndexView from "./pages/IndexView";
+import IndexView from "./views/IndexView";
 
 
 function App() {
